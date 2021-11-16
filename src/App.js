@@ -1,5 +1,6 @@
 import ExpenseItem from "./components/ExpenseItem";
 import './App.css'
+import NewExpense from "./components/NewExpense";
 
 function App() {
   const expenses = [
@@ -26,8 +27,7 @@ function App() {
 
   return (
     <div className='container'>
-      <h2>Let's get started!</h2>
-
+      <NewExpense />
       <div className='expenses expense-wrap'>
         {expenses.map((expenseItem) => (
           <ExpenseItem key={expenseItem.id} expenseItem={expenseItem}></ExpenseItem>
