@@ -1,6 +1,9 @@
 import ExpenseItem from "./components/ExpenseItem";
 import './App.css'
 import NewExpense from "./components/NewExpense";
+import Expenses from './components/Expenses'
+import { useState } from "react";
+import ExpenseFilter from './components/ExpenseFilter'
 
 function App() {
   const expenses = [
@@ -25,10 +28,26 @@ function App() {
     },
   ];
 
+
+  const [expenseDataArray, setExpenseDataArray] = useState([...expenses]);
+
+  const addExpenseHandler = (expense) => {
+    setExpenseDataArray([...expenseDataArray, expense]);
+    console.log('here ' + expenseDataArray)
+  }
+
   return (
     <div className='container'>
-      <NewExpense />
+      {/* form */}
+      <NewExpense onAddExpense={addExpenseHandler} />
+      {/* bar graph */}
       <div className='expenses expense-wrap'>
+        <Expenses onExpenseDataArray={expenseDataArray} />
+      </div>
+      {/* list */}
+      <div className='expenses expense-wrap'>
+        <ExpenseFilter />
+
         {expenses.map((expenseItem) => (
           <ExpenseItem key={expenseItem.id} expenseItem={expenseItem}></ExpenseItem>
         ))}

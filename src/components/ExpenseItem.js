@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './ExpenseItem.css'
 import ExpenseDate from './ExpenseDate'
 
+
 const ExpenseItem = ({ expenseItem }) => {
     // [nameOfState, functionToUpdateState]
     // put state data between parentheses
@@ -13,7 +14,7 @@ const ExpenseItem = ({ expenseItem }) => {
 
 
     return (
-        <div className='expense-item'>
+        < div className='expense-item' >
 
 
             <ExpenseDate expenseDate={expenseItem.date} />
@@ -23,7 +24,7 @@ const ExpenseItem = ({ expenseItem }) => {
             </div>
             <button onClick={clickHandler}>Button</button>
 
-        </div>
+        </div >
     )
 }
 
