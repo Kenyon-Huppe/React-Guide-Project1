@@ -1,7 +1,7 @@
 
 const Expenses = ({ expenseDataArray }) => {
 
-    console.log('In Expenses' + expenseDataArray);
+
     return (
         <div>
 

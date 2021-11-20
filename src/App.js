@@ -28,12 +28,19 @@ function App() {
     },
   ];
 
+  const [filteredYear, setFilteredYear] = useState('2020');
+
+
 
   const [expenseDataArray, setExpenseDataArray] = useState([...expenses]);
 
   const addExpenseHandler = (expense) => {
     setExpenseDataArray([...expenseDataArray, expense]);
     console.log('here ' + expenseDataArray)
+  }
+
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
   }
 
   return (
@@ -46,7 +53,7 @@ function App() {
       </div>
       {/* list */}
       <div className='expenses expense-wrap'>
-        <ExpenseFilter />
+        <ExpenseFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
 
         {expenses.map((expenseItem) => (
           <ExpenseItem key={expenseItem.id} expenseItem={expenseItem}></ExpenseItem>
